@@ -1,8 +1,8 @@
-- name: "Backup Arista switches"
+- name: "Backup leafs"
   hosts: leafs
   gather_facts: no
   tasks:
-    - name: Backup switch (eos)
+    - name: Backup cEOS switches
       arista.eos.eos_config:
         backup: yes
         backup_options:
