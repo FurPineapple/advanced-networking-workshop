@@ -1,4 +1,4 @@
-- name: "Backup leafs"
+- name: Backup leafs
   hosts: leafs
   gather_facts: no
   tasks:
