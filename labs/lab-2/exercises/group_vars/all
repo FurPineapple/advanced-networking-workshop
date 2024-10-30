@@ -1,0 +1,6 @@
+---
+vlans:
+ - vlanid: 39
+   name: prod
+ - vlanid: 40
+   name: test-l2-vxlan

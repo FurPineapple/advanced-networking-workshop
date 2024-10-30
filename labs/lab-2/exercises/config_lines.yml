@@ -1,0 +1,36 @@
+- name: Static config to leaf1
+  hosts: clab-arista-lab2-leaf1
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Set device configuration from file
+      arista.eos.eos_config:
+        src: src/leafs.cfg
+
+- name: Static config to leaf2
+  hosts: clab-arista-lab2-leaf2
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Set device configuration from file
+      arista.eos.eos_config:
+        src: src/leafs.cfg
+
+- name: Apply configuration using lines
+  hosts: leafs
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Set Ethernet11 L3 configuration
+      arista.eos.eos_config:
+        lines:
+          - "ip address {{ eth11_ip_address }}"
+        parents: interface Ethernet11
+        after: no switchport
+
+    - name: Set Ethernet12 L3 configuration
+      arista.eos.eos_config:
+        lines:
+          - "ip address {{ eth12_ip_address }}"
+        parents: interface Ethernet12
+        after: no switchport

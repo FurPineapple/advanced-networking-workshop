@@ -1,3 +1,8 @@
 ---
-eth11_ip_address: "10.0.1.1/31"
-eth12_ip_address: "10.0.2.1/31"
+interfaces:
+  - name: Ethernet11
+    description: spine1
+    address: 10.0.1.1/31
+  - name: Ethernet12
+    description: spine2
+    address: 10.0.2.1/31

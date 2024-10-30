@@ -1,0 +1,17 @@
+- name: Static config to leaf1
+  hosts: clab-arista-lab2-leaf1
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Set device configuration from file
+      arista.eos.eos_config:
+        src: src/leaf1.cfg
+
+- name: Static config to leaf2
+  hosts: clab-arista-lab2-leaf2
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Set device configuration from file
+      arista.eos.eos_config:
+        src: src/leaf2.cfg
