@@ -1,0 +1,8 @@
+- name: Set static config to leafs
+  hosts: leafs
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Apply device configuration via template
+      arista.eos.eos_config:
+        src: templates/leafs.j2
