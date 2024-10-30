@@ -1,0 +1,10 @@
+- name: "Backup Arista switches"
+  hosts: leafs
+  gather_facts: no
+  tasks:
+    - name: Backup switch (eos)
+      arista.eos.eos_config:
+        backup: yes
+        backup_options:
+          dir_path: /home/student/advanced-networking-workshop/backups
+      become: yes
